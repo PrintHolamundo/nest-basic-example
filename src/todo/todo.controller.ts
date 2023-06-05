@@ -25,11 +25,11 @@ export class TodoController {
 
   @Patch(':id')
   update(@Param('id', ParseIntPipe) id: number, @Body() updateTodoDto: UpdateTodoDto) {
-    return this.todoService.update(+id, updateTodoDto);
+    return this.todoService.update(id, updateTodoDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todoService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.todoService.remove(id);
   }
 }
